@@ -10,6 +10,14 @@ export default class TodoList extends Component {
             </div>
             <div id="input-container">
                 <input id="input-box" placeholder="WHATCHA GOTTA DO?"></input>
+                <button id='input-button' placeholder="ADD"></button>
+                <hr></hr>
+            </div>
+            <div id="list-container">
+                <div id='list'>
+                    <ul>
+                    </ul>
+                </div>
             </div>
         </div>
        )
