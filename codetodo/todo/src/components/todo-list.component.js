@@ -1,10 +1,56 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const Todo = props => (
+    <tr>
+        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
+        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
+        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
+        <td>
+            <Link to={"/edit/"+props.todo._id}>Edit</Link>
+        </td>
+    </tr>
+)
 
 class TodoList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {todos: []}
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/todos/')
+            .then(response => {
+                this.setState({todos: response.data})
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+    }
+
+    todoList() {
+        return this.state.todos.map(function(currentTodo, i) {
+            return <Todo todo={currentTodo} key={i} />
+        });
+    }
+
     render() {
         return (
             <div>
-                <p>This is the Todo List component</p>
+                <h3>To-Do List</h3>
+                <table className="table table-striped" style={{ marginTop: 20}}>
+                    <thead>
+                        <tr>Description</tr>
+                        <tr>Responsible</tr>
+                        <tr>Priority</tr>
+                        <tr>Actions</tr>
+                    </thead>
+                    <tbody>
+                        { this.todoList() }
+                    </tbody>
+                </table>
             </div>
         )
     }

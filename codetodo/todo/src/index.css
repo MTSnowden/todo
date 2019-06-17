@@ -7,3 +7,7 @@ body {
 .heading {
   font-family: sans-serif;
 }
+
+.completed {
+  text-decoration: line-through;
+}
