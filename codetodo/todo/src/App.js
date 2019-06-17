@@ -6,7 +6,6 @@ import EditTodo from './components/edit-todo.component';
 import CreateTodo from './components/create-todo.component';
 import logo from '../src/logo.png';
 
-
 class App extends Component {
   render() {
     return (
