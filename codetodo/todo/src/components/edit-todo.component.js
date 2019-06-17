@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default EditList extends Component {
+class EditList extends Component {
     render() {
         return (
             <div>
@@ -9,3 +9,5 @@ export default EditList extends Component {
         )
     }
 };
+
+export default EditList;
