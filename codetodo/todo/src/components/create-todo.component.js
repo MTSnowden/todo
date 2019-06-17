@@ -10,15 +10,15 @@ class CreateTodo extends Component {
         this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        const newTodo = {
-            todo_description: this.state.todo_description,
-            todo_responsible: this.state.todo_responsible,
-            todo_priority: this.state.todo_priority,
-            todo_completed: this.state.todo_completed
-        }
+        // const newTodo = {
+        //     todo_description: this.state.todo_description,
+        //     todo_responsible: this.state.todo_responsible,
+        //     todo_priority: this.state.todo_priority,
+        //     todo_completed: this.state.todo_completed
+        // }
 
-        axios.post('http://localhost:3000/todos/add', newTodo) 
-            .then(res => console.log(res.data))
+        // axios.post('http://localhost:3000/todos/add', newTodo) 
+        //     .then(res => console.log(res.data))
 
         this.state ={
             todo_description: '',
@@ -120,7 +120,7 @@ class CreateTodo extends Component {
                     </div>
                 </div>
                 <div className="form-group">
-                    <input type="submit" value="Create Todo" className="btn btn-primary" />
+                    <input type="submit" value="Create Task" className="btn btn-success" />
                 </div>
             </form>
             </div>
