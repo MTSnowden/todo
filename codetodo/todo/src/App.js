@@ -32,6 +32,10 @@ class App extends Component {
                   <Link to="/create" className="nav-link">Create Task</Link>
                 </li>
 
+                <li className="navbar-item">
+                  <Link to="/edit" className="nav-link">Edit Task</Link>
+                </li>
+
               </ul>
             </div>
 

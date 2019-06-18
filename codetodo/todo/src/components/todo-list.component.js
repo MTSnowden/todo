@@ -7,6 +7,8 @@ import axios from 'axios';
 // pass in props from each component 
 // create className that checks if the task has been completed and if so apply the 
 // styling that indicates its been completed...strikethrough
+// if the prop is complete it will be assigned the className completed and the styling will apply
+// of it has not been completed will be assigned an empty string so the text will not be crossed out
 const Todo = props => (
     <tr>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>

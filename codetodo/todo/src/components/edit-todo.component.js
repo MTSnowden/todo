@@ -3,6 +3,8 @@ import axios from 'axios';
 
 class EditList extends Component {
 
+
+    // call constructor that passes in props and set the state
     constructor(props) {
         super(props);
 
@@ -11,6 +13,7 @@ class EditList extends Component {
         this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
         this.onChangeTodoCompleted = this.onChangeTodoCompleted.bind(this);
 
+        // define the initial state of edit component
         this.state = {
             todo_description: '',
             todo_responsible: '',
@@ -19,6 +22,11 @@ class EditList extends Component {
         }
     }
 
+
+    // use get request the current todo items from the backend via axios
+    // followed by the id of the current todo item 
+    // .then callback function, with the response containing the todo data of that requested element
+    // set the state of edit todo component containing the object with the uptated properties
     componentDidMount() {
         axios.get('http://localhost:4000/todos/'+this.props.match.params.id)
         .then(response => {
@@ -79,7 +87,7 @@ class EditList extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Description:</label>
-                        <input type="text"
+                        <input  type="text"
                                 className="form-control"
                                 value={this.state.todo_description}
                                 onChange={this.onChangeTodoDescription }
@@ -87,12 +95,14 @@ class EditList extends Component {
                     </div>
                     <div className="form-group">
                         <label>Responsible:</label>
-                        <input type="text"
+                        <input  type="text"
                                 className="form-control"
                                 value={this.state.todo_responsible}
                                 onChange={this.onChangeTodoResponsible}
                         />
                     </div>
+                    
+                    {/* create radio buttons to change piroity of item */}
                     <div className="form-group">
                     <div className="form-check form-check-inline">
                         <input  className="form-check-input"
