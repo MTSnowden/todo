@@ -21,7 +21,7 @@ class App extends Component {
 
             <Link to="/" className="navbar-brand">MERN-Stack To-Do App</Link>
             
-            <div className="collapse nav-collapse">
+            <div className="item-container">
               <ul className="navbar-nav mr-auto">
 
                 <li className="navbar-item">

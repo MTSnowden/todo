@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 class CreateTodo extends Component {
     constructor(props) {
@@ -10,15 +10,15 @@ class CreateTodo extends Component {
         this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        // const newTodo = {
-        //     todo_description: this.state.todo_description,
-        //     todo_responsible: this.state.todo_responsible,
-        //     todo_priority: this.state.todo_priority,
-        //     todo_completed: this.state.todo_completed
-        // }
+        const newTodo = {
+            todo_description: this.state.todo_description,
+            todo_responsible: this.state.todo_responsible,
+            todo_priority: this.state.todo_priority,
+            todo_completed: this.state.todo_completed
+        };
 
-        // axios.post('http://localhost:3000/todos/add', newTodo) 
-            // .then(res => console.log(res.data))
+        axios.post('http://localhost:3000/todos/add', newTodo) 
+            .then(res => console.log(res.data))
 
         this.state ={
             todo_description: '',
@@ -49,11 +49,11 @@ class CreateTodo extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('Form sumbitted:')
-        console.log('Todo Description: ${this.state.todo_description}');
-        console.log('Todo Responsibile: ${this.state.todo_responsible}');
-        console.log('Todo Priority: ${this.state.todo_priority}');
-        console.log('Todo Completed: ${this.state.todo_completed}');
+        console.log(`Form sumbitted:`)
+        console.log(`Todo Description: ${this.state.todo_description}`);
+        console.log(`Todo Responsibile: ${this.state.todo_responsible}`);
+        console.log(`Todo Priority: ${this.state.todo_priority}`);
+        console.log(`Todo Completed: ${this.state.todo_completed}`);
 
         this.setState=({
         todo_description: '',
