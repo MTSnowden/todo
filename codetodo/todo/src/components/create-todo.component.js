@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 class CreateTodo extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class CreateTodo extends Component {
         // }
 
         // axios.post('http://localhost:3000/todos/add', newTodo) 
-        //     .then(res => console.log(res.data))
+            // .then(res => console.log(res.data))
 
         this.state ={
             todo_description: '',
