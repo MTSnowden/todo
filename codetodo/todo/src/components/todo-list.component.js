@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-// only used in this componenet so need to export
+// only used in this componenet so no need to export
 // pass in props from each component 
 // create className that checks if the task has been completed and if so apply the 
-// styling that indicates its been completed...strikethrough
-// if the prop is complete it will be assigned the className completed and the styling will apply
-// of it has not been completed will be assigned an empty string so the text will not be crossed out
+// styling from bootstrap that indicates its been completed...strikethrough
+// if the prop className is empty string so the text will not be crossed out
 const Todo = props => (
     <tr>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
@@ -20,8 +19,8 @@ const Todo = props => (
     </tr>
 )
 
-class TodoList extends Component {
 
+class TodoList extends Component {
     // set the initial state of the component with object containing property of todo
     // todo property initially contains an empty array
     constructor(props) {
@@ -29,9 +28,9 @@ class TodoList extends Component {
         this.state = {todos: []}
     }
 
-    // once the component mounts to the dom, use a get request from the backend the list of items
-    // .then callback reset the state and pass in object containing an object with the property todo
-    // with a value of the response.data
+    // once the component mounts to the dom, use a 'get' request to the backend  for the list of items
+    // .then a callback function is used to reset the state and pass in object containing 
+    // an object with the property todo with a value of the response.data
     // use catch block to print to console if there is an error
     componentDidMount() {
         axios.get('http://localhost:3000/todos/')
@@ -47,7 +46,7 @@ class TodoList extends Component {
     // this method interates over the elements of the todo array
     // current item as the first argument, index as the second argument
     // returns the component Todo with prop todo containing all the current todo items
-    // assigning them the key of index
+    // assigning them the key of 'index'
     todoList() {
         return this.state.todos.map(function(currentTodo, i) {
             return <Todo todo={currentTodo} key={i} />
@@ -55,7 +54,7 @@ class TodoList extends Component {
     }
 
 
-    // create render function containing the table of items that will print to the page
+    // render function containing the table of items that will print to the page
     render() {
         return (
             <div>

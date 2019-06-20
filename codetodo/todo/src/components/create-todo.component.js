@@ -5,6 +5,13 @@ class CreateTodo extends Component {
     constructor(props) {
         super(props);
 
+        this.state ={
+            todo_description: '',
+            todo_responsible: '',
+            todo_priority: '',
+            todo_completed: false
+        }
+
         this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
         this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
         this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
@@ -12,12 +19,15 @@ class CreateTodo extends Component {
 
         // create newTodo object containing the value from each component
         //  that were entered by the user in the form
+        
         const newTodo = {
             todo_description: this.state.todo_description,
             todo_responsible: this.state.todo_responsible,
             todo_priority: this.state.todo_priority,
             todo_completed: this.state.todo_completed
         };
+
+
 
         // make a post call to the axios library 
         // first pass in a string with the url path of the endpoint which is accepting new incoming requests
@@ -26,12 +36,7 @@ class CreateTodo extends Component {
         axios.post('http://localhost:4000/todos/add', newTodo) 
             .then(res => console.log(res.data))
 
-        this.state ={
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
-        }
+        
     }
 
     onChangeTodoDescription(e) {
