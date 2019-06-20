@@ -11,7 +11,8 @@ class CreateTodo extends Component {
             todo_priority: '',
             todo_completed: false
         }
-
+        
+        // bind this to each onChange function
         this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
         this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
         this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
