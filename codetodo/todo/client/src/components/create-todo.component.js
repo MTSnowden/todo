@@ -39,7 +39,7 @@ class CreateTodo extends Component {
 
         
     }
-
+    // e.target.value = what is being put in the text input box by user
     onChangeTodoDescription(e) {
         this.setState({
             todo_description: e.target.value
